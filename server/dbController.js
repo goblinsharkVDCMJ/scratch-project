@@ -24,12 +24,13 @@ dbController.getUserActivities = (req, res, next) => {
 
 dbController.postActivity = (req, res, next) => {
     const { activityName, requiredCount, owner, userId } = req.body;
-    const firstParticipant = [userId];
+    const firstParticipant = [];
+    firstParticipant.push(userId)
 
     database.Activity.create({
         activityName,
         currentCount: 1,
-        requiredCount, // this is a string
+        requiredCount, 
         owner,
         people: firstParticipant,
     }).then((data) => {
@@ -41,10 +42,11 @@ dbController.postActivity = (req, res, next) => {
 }
 
 dbController.addUserToActivity = (req, res, next) => {
-    const { userId, ownerUsername } = req.body;
-    database.Activity.updateMany(
-        { owner: ownerUsername },
-        { $push: { "people": userId } }
+   
+    const { userId, activityId } = req.body;
+    database.Activity.updateOne(
+        { _id: activityId },
+        { $push: { "people": userId }, $inc: {currentCount: 1} },
     ).then((data) => {
         console.log(data);
         return next();
@@ -69,7 +71,18 @@ dbController.createUser = (req, res, next) => {
 }
 
 dbController.authenticateUser = (req, res, next) => {
-    
+    console.log('hi')
+    const { name, password } = req.body
+    console.log(name);
+    database.User.findOne({ "name": name }).then((data) => {
+        console.log(password, data)
+        if (password === data.password) {
+            return next()
+        }
+    }).catch((err) => {
+        return next({message: {err: err}})
+    })
+ 
 }
 
 module.exports = dbController;

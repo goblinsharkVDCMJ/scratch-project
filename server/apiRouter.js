@@ -17,7 +17,9 @@ router.post('/postActivity', dbController.postActivity, (req, res) => {
     return res.sendStatus(200);
 })
 
-router.patch('/addUserToActivity', dbController.addUserToActivity, (req, res) => {
+router.patch('/addUserToActivity',
+    dbController.addUserToActivity,
+    (req, res) => {
     return res.sendStatus(200)
 })
 
