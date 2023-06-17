@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Card = () => {
+
   return (
     <div className='Card'>
       <h1>Name</h1>
@@ -9,6 +10,7 @@ const Card = () => {
         <li>Count: </li>
         <li>Patricipiants: </li>
       </ul>
+      <button>Join</button>
     </div>
   );
 };
