@@ -1,14 +1,13 @@
 import React from 'react';
 
-const Card = () => {
-
+const Card = ({ activityName, currentCount, requiredCount, owner }) => {
   return (
     <div className='Card'>
-      <h1>Name</h1>
-      <h2>Created by: </h2>
+      <h1>{activityName}</h1>
+      <h2>Created by: {owner}</h2>
       <ul>
-        <li>Count: </li>
-        <li>Patricipiants: </li>
+        <li>Count: {currentCount}</li>
+        <li>Required participants: {requiredCount}</li>
       </ul>
       <button>Join</button>
     </div>

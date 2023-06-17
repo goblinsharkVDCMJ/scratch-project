@@ -1,32 +1,50 @@
-import { React, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // import MainCointainer from '../Cointainer/MainCointainer';
 import Card from '../components/Card';
 
 const Home = () => {
+  const [activites, setActivites] = useState([]);
+
   const arr = [];
 
-  const pushCards = (arg) => {
-    arr.push(<Card />);
-  };
+  useEffect(async () => {
+    const data = await fetch('/api/db/getActivities');
+    const dbData = await data.json();
+    setActivites(dbData);
 
-  useEffect() => {
-    setInterval(() => {}, 3000)
-  }
-  setInterval(() => {useEffect( async () => {
-    const dbArr = await fetch('/api/db/getActivities');
-    pushCards(dbArr);
-  })}, 3000)
+    // console.log('we are looking at dbData', dbData);
+  }, []);
+
+  const pushCards = () => {
+    activites.forEach((element) => {
+      arr.push(<Card />);
+    });
+  };
 
   return (
     <div>
       <Link to='/form'>
         <button>Create new activity</button>
       </Link>
-      <hr></hr>
       <h1>Home</h1>
-      <div>{arr}</div>
+      {activites.map((activity) => {
+        return (
+          <>
+            <Card
+              activityName={activity.activityName}
+              currentCount={activity.currentCount}
+              requiredCount={activity.requiredCount}
+              owner={activity.owner}
+            />
+            {/* <div>{activity.activityName}</div>
+            <div>{activity.currentCount}</div>
+            <div>{activity.requiredCount}</div>
+            <div>{activity.owner}</div> */}
+          </>
+        );
+      })}
     </div>
   );
 };
