@@ -1,23 +1,14 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-const ActForm = () => {
-  const makeActivity = async (e) => {
-    const desc = document.getElementById("lname").value;
-    const number = document.getElementById("peopleReq").value;
-    e.preventDefault();
-    console.log("make", desc);
-    let event = {
-      activityName: desc,
-      requiredCount: number,
-      owner: "12345",
-      userID: "648dce46018114fa3d7856af7",
-    };
+import { Switch, Route } from "react-router-dom";
 
-    fetch("../api/homePage/postActivity", {
-      method: "POST",
-      body: JSON.stringify(event),
-      headers: { "Content-Type": "application/json" },
-    }).catch((err) => console.log("create event error: ", err));
+const ActivityCreator = () => {
+  //activityName, count, owner, userId
+  const makeActivity = async (e) => {
+    e.preventDefault();
+    console.log("amke");
+    let event = {};
+
+    const result = await fetch("../api/");
   };
 
   return (
@@ -41,5 +32,4 @@ const ActForm = () => {
     </div>
   );
 };
-
-export default ActForm;
+export default ActivityCreator;
