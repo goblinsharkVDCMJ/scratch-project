@@ -23,6 +23,14 @@ router.patch(
   }
 );
 
+router.patch(
+  "/addUserToActivity",
+  dbController.addUserToActivity,
+  (req, res) => {
+    return res.sendStatus(200);
+  }
+);
+
 router.post("/createUser", dbController.createUser, (req, res) => {
   return res.sendStatus(200);
 });
