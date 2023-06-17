@@ -36,7 +36,7 @@ router.post("/createUser", dbController.createUser, (req, res) => {
 });
 
 router.get("/authenticateUser", dbController.authenticateUser, (req, res) => {
-  return res.sendStatus(200);
+  return res.status(200).json(res.locals.message);
 });
 
 // global error handler
