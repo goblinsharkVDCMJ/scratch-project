@@ -8,7 +8,6 @@ router.get('/getActivities',
     (req, res,)=>{
         return res.status(200).json([...res.locals.activities]);
     })
-// 
 
 router.get('/getUserActivities', dbController.getUserActivities, (req, res) => {
     return res.status(200).json(userActivities)
@@ -19,16 +18,16 @@ router.post('/postActivity', dbController.postActivity, (req, res) => {
 })
 
 router.patch('/addUserToActivity', dbController.addUserToActivity, (req, res) => {
-    return res.status(200)
+    return res.sendStatus(200)
 })
 
-// router.post('/createUser', dbController.createUser, (req, res) => {
-//     return res.status(200)
-// })
+router.post('/createUser', dbController.createUser, (req, res) => {
+    return res.sendStatus(200);
+})
 
-// router.get('/authenticateUser', dbController.authenticateUser, (req, res) => {
-//     return res.status(200)
-// })
+router.get('/authenticateUser', dbController.authenticateUser, (req, res) => {
+    return res.sendStatus(200);
+})
 
 // global error handler
 

@@ -53,12 +53,23 @@ dbController.addUserToActivity = (req, res, next) => {
     });
 }
 
-// dbController.createUser = (req, res, next) => {
+dbController.createUser = (req, res, next) => {
+    const { name, password } = req.body;
+    const joinedActivities = [];
+    database.User.create({
+        name,
+        password,
+        joinedActivities
+    }).then((data) => {
+        console.log(data);
+        return next();
+    }).catch((err) => {
+        return next({ message: { err: err } });
+    });
+}
 
-// }
-
-// dbController.authenticateUser = (req, res, next) => {
+dbController.authenticateUser = (req, res, next) => {
     
-// }
+}
 
 module.exports = dbController;
