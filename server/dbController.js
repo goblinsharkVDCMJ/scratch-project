@@ -12,8 +12,8 @@ dbController.getActivities = (req, res, next) => {
 }
 
 dbController.getUserActivities = (req, res, next) => {
-    const { username, id } = req.body;
-    database.Activity.find({ username, id }).then((data) => {
+    const { id } = req.body;
+    database.User.find({ id }).then((data) => {
         console.log(data);
         res.locals.userActivities = data;
         return next();
@@ -27,7 +27,8 @@ dbController.postActivity = (req, res, next) => {
     const firstParticipant = [userId];
     database.Activity.create({
         activityName,
-        count,
+        currentCount: 1,
+        requiredCount: count,
         owner,
         people: firstParticipant,
     }).then((data) => {
