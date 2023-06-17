@@ -23,12 +23,13 @@ dbController.getUserActivities = (req, res, next) => {
 }
 
 dbController.postActivity = (req, res, next) => {
-    const { activityName, count, owner, userId } = req.body;
+    const { activityName, requiredCount, owner, userId } = req.body;
     const firstParticipant = [userId];
+
     database.Activity.create({
         activityName,
         currentCount: 1,
-        requiredCount: count,
+        requiredCount, // this is a string
         owner,
         people: firstParticipant,
     }).then((data) => {
@@ -52,12 +53,12 @@ dbController.addUserToActivity = (req, res, next) => {
     });
 }
 
-dbController.createUser = (req, res, next) => {
+// dbController.createUser = (req, res, next) => {
 
-}
+// }
 
-dbController.authenticateUser = (req, res, next) => {
+// dbController.authenticateUser = (req, res, next) => {
     
-}
+// }
 
 module.exports = dbController;

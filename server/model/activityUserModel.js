@@ -24,8 +24,7 @@ const activitySchema = new Schema({
   },
   requiredCount: {
     type: Number,
-    min: [2, 'You need more people'],
-    required: [true, 'You must say how many people you need']
+    required: true
   },
   owner: {
     type: String,

@@ -8,20 +8,20 @@ app.use(cors());
 app.use(express.json());
 
 // create path to login
-app.get('/api/login', (req, res)=>{
+app.get('/api/login', (req, res) => {
     return res.status(200).sendFile(path.join(__dirname, 'location of login html'))
-})
+});
 // create path to sign up
-app.get('/api/signUp', (req, res)=>{
+app.get('/api/signUp', (req, res) => {
     return res.status(200).sendFile(path.join(__dirname, 'location of sign up html file'))
-})
+});
 // create path to homepage
-app.use('/api/homePage',apiRouter)
+app.use('/api/db', apiRouter);
 
 // create path to event creation page
-app.get('/api/createAGoodTime', (req, res)=>{
+app.get('/api/createAGoodTime', (req, res) => {
     return res.status(200).sendFile(path.join(__dirname, 'location of event creation page html'))
-})
+});
 
 
 app.use('*', (req, res) => {
