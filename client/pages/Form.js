@@ -21,23 +21,25 @@ const ActForm = () => {
   };
 
   return (
+    <div className="eventMaker">
     <div>
       {/* <p>form</p> */}
       <form action=''>
         <span>
-          <label htmlFor='lname'>Event description: </label>
+          <label htmlFor='lname'>What's your event? </label>
           <input type='text' id='lname' name='lname' />
           <br />
         </span>
         <br />
         <span>
-          <label htmlFor='lreq'>People Requirement: </label>
+          <label htmlFor='lreq'>How may people do you need? </label>
           <input type='number' id='peopleReq' name='number' />
           <br />
         </span>
         <br />
-        <button onClick={makeActivity}>Make Event</button>
+        <button onClick={makeActivity}>MAKE EVENT</button>
       </form>
+    </div>
     </div>
   );
 };

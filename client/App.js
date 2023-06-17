@@ -10,8 +10,8 @@ import Signup from './pages/Singup';
 export default function App() {
   return (
     <BrowserRouter>
-      <div>Hello</div>
-      <div>
+      <h1>Hi friend!</h1>
+      <div className='links'>
         <NavLink to='/'>login</NavLink>
         <NavLink to='/signup'>singup</NavLink>
         <NavLink to='/home'>home</NavLink>
