@@ -1,12 +1,11 @@
 const mongoose = require('mongoose');
 
-const MONGO_URI = 'mongodb+srv://codeFromCO:cdlMqAKWkFQ0AKnb@scratchgoblin.lblske8.mongodb.net/';
+const MONGO_URI = '';
 
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true, 
-    dbName: 'scratch',
     })
   .then(() => console.log('Connected to Mongo DB')) 
   .catch((err) => console.log(err));
