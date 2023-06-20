@@ -23,11 +23,12 @@ const Login = () => {
   };
 
   return (
+    <div className="userLogin">
     <div>
       {/* <p>hello</p> */}
       <form action=''>
         <span>
-          <label>User: </label>
+          <label>Username: </label>
           <input type='text' id='usernameL' name='lname' />
           <br />
         </span>
@@ -40,6 +41,7 @@ const Login = () => {
         <br />
         <button onClick={login}>Login</button>
       </form>
+    </div>
     </div>
   );
 };

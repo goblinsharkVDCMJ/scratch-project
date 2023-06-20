@@ -1,15 +1,3 @@
-// import React from 'react';
-// import { NavLink } from 'react-router-dom';
-// const Home = () => {
-//   return (
-//     <div>
-//       <h1>Home</h1>
-//     </div>
-//   );
-// };
-
-// export default Home;
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import MainCointainer from ‘../Cointainer/MainCointainer’;
@@ -33,11 +21,12 @@ const Home = () => {
     });
   };
   return (
+    <div className="allBoxes"> 
     <div>
       <Link to='/form'>
-        <button>Create new activity</button>
+        {/* <button>Create new activity</button> */}
       </Link>
-      <h1>Home</h1>
+      {/* <h1>Home</h1> */}
       {activites.map((activity, index) => {
         return (
           <>
@@ -55,6 +44,7 @@ const Home = () => {
           </>
         );
       })}
+    </div>
     </div>
   );
 };

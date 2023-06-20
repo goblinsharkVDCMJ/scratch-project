@@ -13,9 +13,9 @@ export default function App() {
       <h1>Hi friend!</h1>
       <div className='links'>
         <NavLink to='/'>login</NavLink>
-        <NavLink to='/signup'>singup</NavLink>
+        <NavLink to='/signup'>signup</NavLink>
         <NavLink to='/home'>home</NavLink>
-        <NavLink to='/form'>form</NavLink>
+        <NavLink to='/form'>create new event</NavLink>
       </div>
       <Routes>
         <Route path='/' element={<Login />} exact />
